@@ -1,0 +1,22 @@
+{
+  "name": "Note",
+  "description": "",
+  "main": "",
+  "authors": [
+    "hk_core <hk.core9092@gmail.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.7"
+  }
+}
