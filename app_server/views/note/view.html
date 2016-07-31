@@ -1,0 +1,114 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Note</title>
+    <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="/vendor/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">导航</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Note</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/note/list">笔记</a></li>
+            <li><a href="/mine">我的主页</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Link</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">系统<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/auth/logout">退出</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+
+
+      </div>
+    </nav>
+
+    <div class="container note-body">
+      {{#if flash}}
+          <div class="alert alert-{{flash.type}} alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              {{flash.message}}
+          </div>
+      {{/if}}
+
+      <div class="row">
+    <div class="col-md-4">
+        标题
+    </div>
+    <div class="col-md-8">
+        {{note.title}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        时间
+    </div>
+    <div class="col-md-8">
+        {{dateConverter note.createOn 'YYYY/MM/DD'}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        作者
+    </div>
+    <div class="col-md-8">
+        {{note.author}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        like
+    </div>
+    <div class="col-md-8">
+        {{note.like}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        内容
+    </div>
+    <div class="col-md-8">
+        {{note.content}}
+    </div>
+</div>
+<form action="/note/edit/{{note._id}}/like" method="post">
+    <button>like</button>
+</form>
+<div>
+  <a href="/note/list">back</a>
+</div>
+
+    </div>
+    <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
