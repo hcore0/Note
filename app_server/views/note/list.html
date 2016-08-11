@@ -25,6 +25,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="/note/list">笔记</a></li>
             <li><a href="/mine">我的主页</a></li>
+            <li><a href="/chat">聊天</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -56,45 +57,45 @@
 
       <a class="pull-right" href="/note/edit" role="button">
         <i class="glyphicon glyphicon-duplicate"></i> 添加</a>
-<form method="post">
-    <table class="table">
-        <caption>Note</caption>
-        <thead>
-            <tr>
-                <th>序号</th>
-                <th>昵称</th>
-                <th>标题</th>
-                <th>时间</th>
-                <th>操作</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each list}}
-            <tr>
-                <td>{{rowNum @index}}</td>
-                <td>{{author}}</td>
-                <td>{{title}}</td>
-                <td>{{dateConverter createOn 'YYYY/MM/DD'}}</td>
-                <td>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <a href="/note/view/{{_id}}" title="查看"><i class="glyphicon glyphicon-eye-open"></i></a>
-                      </div>
-                      <div class="col-md-4">
-                        <a href="/note/edit/{{_id}}" title="编辑"><i class="glyphicon glyphicon-edit"></i></a>
-                      </div>
-                      <div class="col-md-4">
-                        <button formaction="/note/remove/{{_id}}" title="删除" class="link-btn"><i class="glyphicon glyphicon-trash"></i></button>
-                      </div>
-                    </div>
-                </td>
-            </tr>
-            {{/each}}
+      <form method="post">
+          <table class="table">
+              <caption>Note</caption>
+              <thead>
+                  <tr>
+                      <th>序号</th>
+                      <th>昵称</th>
+                      <th>标题</th>
+                      <th>时间</th>
+                      <th>操作</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {{#each list}}
+                  <tr>
+                      <td>{{rowNum @index}}</td>
+                      <td>{{author}}</td>
+                      <td>{{title}}</td>
+                      <td>{{dateConverter createOn 'YYYY/MM/DD'}}</td>
+                      <td>
+                          <div class="row">
+                            <div class="col-md-4">
+                              <a href="/note/view/{{_id}}" title="查看"><i class="glyphicon glyphicon-eye-open"></i></a>
+                            </div>
+                            <div class="col-md-4">
+                              <a href="/note/edit/{{_id}}" title="编辑"><i class="glyphicon glyphicon-edit"></i></a>
+                            </div>
+                            <div class="col-md-4">
+                              <button formaction="/note/remove/{{_id}}" title="删除" class="link-btn"><i class="glyphicon glyphicon-trash"></i></button>
+                            </div>
+                          </div>
+                      </td>
+                  </tr>
+                  {{/each}}
 
-        </tbody>
-    </table>
-</form>
-{{{pagination total current '/note/list'}}}
+              </tbody>
+          </table>
+      </form>
+      {{{pagination total current '/note/list'}}}
 
     </div>
     <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>

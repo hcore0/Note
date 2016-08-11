@@ -59,7 +59,7 @@ exports.addNoteHandler = function (data) {
             if (err) {
                 reject(err);
             } else {
-                resolve();
+                resolve(note);
             }
         });
     });
@@ -90,11 +90,11 @@ exports.editNoteHandler = function (data) {
                 content: data.content
             }},
             {upsert: true})
-        .exec(err => {
+        .exec((err, note) => {
             if (err) {
                 reject(err);
             } else {
-                resolve();
+                resolve(note);
             }
         });
     });
@@ -128,11 +128,11 @@ exports.like = function (id) {
                         like: ++note.like
                     }},
                     {upsert: true})
-                .exec(err => {
+                .exec((err, note) => {
                     if (err) {
                         reject(err);
                     } else {
-                        resolve();
+                        resolve(note);
                     }
                 });
             }

@@ -18,9 +18,11 @@ var config = require('./app_server/config');
 
 //加载不需要身份认证的路由
 var freeRoutes = require('./app_server/routes/free');
+//var freeApiRoutes = require('./api_server/routes/free');
 
 //加载需要身份认证的路由
 var authRoutes = require('./app_server/routes/auth');
+//var authApiRoutes = require('./api_server/routes/auth');
 
 var app = express();
 
@@ -40,8 +42,26 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session({secret: config.sessionSecret}));
 
+//使用内存存储session
+var memoryStore = new session.MemoryStore();
+app.use(session({
+  secret: config.sessionSecret,
+  resave: false,
+  saveUninitialized: true,
+  store: memoryStore
+}));
+
+/*加载websocket模块*/
+app.ready = function (server) {
+  require('./websocket/chat').listen(server, memoryStore);
+};
+
+/******************REST API*******************/
+// app.use('/api', freeApiRoutes);
+// app.use('/api', authApiRoutes);
+
+/****************后端渲染页面*****************/
 //消息处理
 app.use(require('./app_server/utils/interceptors/message'));
 
@@ -68,10 +88,21 @@ if (app.get('env') === 'development') {
     console.log(err.stack);
     var status = err.status || 500;
     res.status(status);
-    res.render('error', {
-      status: status,
-      message: err.message,
-      error: err
+    res.format({
+      html: function () {
+        res.render('error', {
+          status: status,
+          message: err.message,
+          error: err
+        });
+      },
+      json: function () {
+        res.json('error', {
+          status: status,
+          message: err.message,
+          error: err
+        });
+      }
     });
   });
 }
@@ -81,11 +112,22 @@ if (app.get('env') === 'development') {
 app.use(function(err, req, res) {
   var status = err.status || 500;
   res.status(status);
-  res.render('error', {
-    status: status,
-    message: err.message,
-    error: {}
-  });
+  res.format({
+      html: function () {
+        res.render('error', {
+          status: status,
+          message: err.message,
+          error: {}
+        });
+      },
+      json: function () {
+        res.json('error', {
+          status: status,
+          message: err.message,
+          error: {}
+        });
+      }
+    });
 });
 
 module.exports = app;

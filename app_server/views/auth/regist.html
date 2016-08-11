@@ -44,7 +44,7 @@
               {{flash.message}}
           </div>
       {{/if}}
-      <form method="post">
+      <form method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label for="account">账号</label>
           <input type="text" class="form-control" id="account" name="account" placeholder="账号">
@@ -57,11 +57,17 @@
           <label for="nickname">昵称</label>
           <input type="text" class="form-control" id="nickname" name="nickname" placeholder="昵称">
         </div>
-        <button type="submit" class="btn btn-default">注册</button>
+        <div class="form-group">
+          <label for="thumbnail">头像</label>
+          <input type="file" id="thumbnail" name="thumbnail" >
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-success">注册</button>
+          <button type="reset" class="btn btn-default">重置</button>
+        </div>
       </form>
     </div>
 
-      
     <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

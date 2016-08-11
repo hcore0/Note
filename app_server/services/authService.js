@@ -12,6 +12,7 @@ exports.regist = function (data) {
         account: data.account,
         hashed_password: hashPW(data.password),
         nickname: data.nickname,
+        thumbnail: data.thumbnail,
         createOn: new Date()
     });
 
