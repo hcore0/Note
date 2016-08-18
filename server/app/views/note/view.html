@@ -1,0 +1,47 @@
+<div class="row mg-t-2">
+    <div class="col-md-4">
+        标题
+    </div>
+    <div class="col-md-8">
+        {{note.title}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        时间
+    </div>
+    <div class="col-md-8">
+        {{dateConverter note.createOn 'YYYY/MM/DD'}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        作者
+    </div>
+    <div class="col-md-8">
+        {{note.author}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        like
+    </div>
+    <div class="col-md-8">
+        {{note.like}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        内容
+    </div>
+    <div class="col-md-8">
+        {{note.content}}
+    </div>
+</div>
+<form action="/note/edit/{{note._id}}/like" method="post">
+    <button>like</button>
+</form>
+<div>
+  <a href="/note/list">back</a>
+</div>

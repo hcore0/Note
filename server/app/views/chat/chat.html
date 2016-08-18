@@ -1,0 +1,93 @@
+<div class="row mg-t-2">
+  <div class="col-md-2 col-xs-12">
+    <div class="list-group rooms" id="rooms"></div>
+  </div>
+  <div class="col-sm-2 col-xs-12">
+    <div class="list-group users" id="users"></div>
+  </div>
+  <div class="col-sm-8 col-xs-12">
+    <div class="panel panel-default chat-box">
+      <div class="panel-body">
+        <ul id="chat-box"></ul>
+      </div>
+    </div>
+
+    <div class="btn-toolbar mg-b-2" role="toolbar">
+      <div class="btn-group" role="group">
+        <button class="btn btn-default" role="button" id="tooltip-icons-btn">
+          <span class="glyphicon glyphicon-gift"></span>
+        </button>
+      </div>
+      <div class="hidden">
+        <div id="tooltip-icons">
+          <div class="clearfix tooltip-icons">
+            <div class="tooltip-icon" data-fa="signing">
+              <i class="fa fa-signing"></i>
+            </div>
+            <div class="tooltip-icon" data-fa="birthdayCake">
+              <i class="fa fa-birthday-cake"></i>
+            </div>
+            <div class="tooltip-icon" data-fa="bomb">
+              <i class="fa fa-bomb"></i>
+            </div>
+            <div class="tooltip-icon" data-fa="female">
+              <i class="fa fa-female"></i>
+            </div>
+            <div class="tooltip-icon" data-fa="handGrabO">
+              <i class="fa fa-hand-grab-o"></i>
+            </div>
+            <div class="tooltip-icon" data-fa="handPeaceO">
+              <i class="fa fa-hand-peace-o"></i>
+            </div>
+            <div class="tooltip-icon" data-fa="handStopO">
+              <i class="fa fa-hand-stop-o"></i>
+            </div>
+            <div class="tooltip-icon" data-fa="heart">
+              <i class="fa fa-heart"></i>
+            </div>
+            <div class="tooltip-icon" data-fa="thumbsODown">
+              <i class="fa fa-thumbs-o-down"></i>
+            </div>
+            <div class="tooltip-icon" data-fa="thumbsOUp">
+              <i class="fa fa-thumbs-o-up"></i>
+            </div>
+            <div class="tooltip-icon" data-fa="rocket">
+              <i class="fa fa-rocket"></i>
+            </div>
+            <div class="tooltip-icon" data-fa="taxi">
+              <i class="fa fa-taxi"></i>
+            </div>
+            <div class="tooltip-icon" data-fa="twitter">
+              <i class="fa fa-twitter"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form class="form-horizontal" id="chat-form">
+      <div class="form-group">
+        <div class="col-xs-10">
+          <input type="text" class="form-control" id="chat-text" placeholder="请输入内容" autocomplete="off">
+        </div>
+        <div class="col-xs-2">
+          <button type="submit" class="btn btn-info pull-right">提交</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+{{#section 'script'}}
+<script src="/vendor/perfect-scrollbar/perfect-scrollbar.jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/chat/dist/chat.js"></script>
+{{/section}}
+{{#section 'style'}}
+<link rel="stylesheet" href="/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<link rel="stylesheet" href="/vendor/font-awesome-4.6.3/css/font-awesome.css">
+<link rel="stylesheet" href="/chat/dist/chat.css">
+{{/section}}
+
+
+

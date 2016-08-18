@@ -1,0 +1,20 @@
+<div class="row mg-t-2">
+    <div class="col-md-2" id="paint-tools">
+        <div>
+            <a href="#" id="eraser" data-cmd="eraser">
+               橡皮 
+            </a>
+        </div>
+    </div>
+    <div class="col-md-10">
+        <canvas id="cav" width="500" height="600" style="border: 1px solid #ccc" class="paint center-block"></canvas>
+    </div>
+</div>
+
+{{#section 'script'}}
+<script src="/socket.io/socket.io.js"></script>
+<script src="/paint/paint.js"></script>
+{{/section}}
+{{#section 'style'}}
+<link rel="stylesheet" href="/paint/paint.css">
+{{/section}}
