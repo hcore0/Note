@@ -1,7 +1,10 @@
 # Ignore
-bin
 node_modules
-public
+public/vendor
+public/images
+public/temp
+public/uploads
+public/favicon.ico
 .idea
 
 # Environment variables

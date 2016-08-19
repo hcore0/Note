@@ -1,0 +1,117 @@
+.list-group.users,
+.list-group.rooms {
+  max-height: 500px;
+  position: relative;
+}
+.chat-box {
+  height: 500px;
+  position: relative;
+  overflow: auto;
+}
+.chat-box ul {
+  list-style-type: none;
+  padding: 0 5px 0 0;
+}
+.chat-box ul > li + li {
+  margin-top: 10px;
+}
+.chat-box .sys-info {
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+}
+.chat-box .sys-info span {
+  background-color: #ccc;
+  border-radius: 5px;
+  padding: 3px 6px;
+  display: inline-block;
+}
+.chat-box .chat-msg {
+  position: relative;
+  padding: 0 70px;
+}
+.chat-box .chat-name {
+  font-size: 12px;
+  color: #aaa;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 3px;
+}
+.chat-box .chat-photo-r {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.chat-box .chat-photo-l {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.chat-box .bubble-right {
+  background-color: #AFDB4A;
+  float: right;
+}
+.chat-box .bubble-right:after {
+  content: '';
+  position: absolute;
+  display: block;
+  background-color: #AFDB4A;
+  width: 10px;
+  height: 10px;
+  right: -5px;
+  top: 15px;
+  transform: rotateZ(45deg);
+}
+.chat-box .bubble-left {
+  background-color: #fff;
+  float: left;
+  border: 1px solid #ccc;
+}
+.chat-box .bubble-left:after {
+  content: '';
+  position: absolute;
+  display: block;
+  background-color: #fff;
+  width: 10px;
+  height: 10px;
+  left: -6px;
+  top: 15px;
+  transform: rotateZ(45deg);
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.chat-box .chat-bubble {
+  display: inline-block;
+  margin: 0;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+  word-break: break-word;
+}
+.tooltip-icons {
+  width: 181px;
+  text-align: center;
+  line-height: 30px;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  color: #aaa;
+}
+.tooltip-icons .tooltip-icon {
+  float: left;
+  width: 30px;
+  height: 30px;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  cursor: pointer;
+}
+.tooltip-icons .tooltip-icon:hover {
+  background: #aaa;
+  color: #fff;
+}
+#tooltip-icons-btn {
+  outline: none;
+}

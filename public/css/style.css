@@ -1,0 +1,29 @@
+body {
+    padding-top: 50px;
+}
+
+#note_carousel img {
+    height: 500px;
+    width: 100%;
+}
+
+.mg-t-2 {
+    margin-top: 10px;
+}
+.mg-b-2 {
+    margin-bottom: 10px;
+}
+
+.link-btn {
+    background: transparent;
+    border: 0;
+    color: #337ab7;
+    padding: 0;
+    display: inline;
+    line-height: 14px;
+}
+
+.user-photo {
+    height: 40px;
+    margin-top: 5px;
+}
