@@ -24,8 +24,8 @@ exports.getNote = function (req, res, next) {
 exports.addNote = function (req, res, next) {
     service.addNoteHandler({
         title: req.body.title,
-        author: req.session.user.nickname,
-        authorId: req.session.user._id,
+        author: req.user.nickname,
+        authorId: req.user._id,
         content: req.body.content,
     }).then(note => {
         res.status(201);

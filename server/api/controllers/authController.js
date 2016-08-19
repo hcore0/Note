@@ -22,7 +22,9 @@ exports.login = function (req, res) {
         password: req.body.password
     }).then(user => {
         res.status(200);
-        res.json(user);
+        res.json({
+            token: user.generateJwt()
+        });
     }, err => {
         res.status(401);
         res.json(err);

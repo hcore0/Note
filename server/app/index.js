@@ -1,3 +1,7 @@
+/**
+ * app server
+ */
+
 var express = require('express');
 var handlebars = require('express-handlebars');
 var path = require('path');
@@ -36,16 +40,11 @@ app.ready = function (server) {
   require('../websocket').listen(server, memoryStore);
 };
 
-/****************后端渲染页面*****************/
 //消息处理
-app.use(require('./utils/interceptors/message'));
+app.use(require('./interceptors/message'));
 
-//不需要身份认证的路由放在前边
-app.use('/', require('./routes/free'));
-
-app.use(require('./utils/interceptors/authentication'));
-
-app.use('/', require('./routes/auth'));
+//加载路由
+require('./routes')(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
