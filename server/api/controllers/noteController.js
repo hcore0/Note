@@ -6,7 +6,7 @@ exports.getNoteList = function (req, res, next) {
 
     service.getNoteList(pageSize, index)
         .then(data => {
-            res.json(data);
+            res.json(data.list);
         }, err => {
             next(err);
         });

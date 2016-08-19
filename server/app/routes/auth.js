@@ -18,7 +18,6 @@ router.post('/note/edit/:id/like', noteCtrl.like);
 //删除
 router.post('/note/remove/:id', noteCtrl.removeNote);
 
-
 router.get('/mine', function (req, res) {
     res.render('mine');
 });
