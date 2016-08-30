@@ -5,7 +5,6 @@ public/images
 public/temp
 public/uploads
 public/favicon.ico
-.idea
 
 # Environment variables
 .env
