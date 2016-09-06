@@ -32,7 +32,7 @@ exports.regist = function (req, res) {
                 account: fields.account,
                 password: fields.password,
                 nickname: fields.nickname,
-                thumbnail: config.photoDir + fileName
+                thumbnail: config.address + config.photoDir + fileName
             }).then(user => {
                 req.session.user = user;
                 req.session.flash = {

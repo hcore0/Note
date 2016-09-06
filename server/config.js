@@ -6,5 +6,6 @@ module.exports = {
     sessionSecret: 'sessionSecret',
     uploadTempDir: './public/temp/',
     uploadDir: './public/uploads/',
-    photoDir: '/uploads/'
+    photoDir: '/uploads/',
+    address: 'http://192.168.0.106:3000'
 };

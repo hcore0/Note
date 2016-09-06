@@ -49,3 +49,38 @@ exports.login = function (data) {
     });
     return promise;
 };
+
+exports.getUser = function (data) {
+    var promise = new Promise((resolve, reject) => {
+        User.findOne(data)
+            .exec((err, user) => {
+                if (!user) {
+                    reject('没有该用户!');
+                } else {
+                    resolve(user);
+                }
+            });
+    });
+    return promise;
+};
+
+exports.editUserHandler = function (data) {
+    var promise = new Promise((resolve, reject) => {
+        User.update(
+            {_id: data.id},
+            {$set: {
+                nickname: data.nickname,
+                thumbnail: data.thumbnail
+            }},
+            {upsert: true})
+        .exec((err, user) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(user);
+            }
+        });
+    });
+    
+    return promise;
+};
