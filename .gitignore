@@ -1,10 +1,6 @@
 # Ignore
 node_modules
 public/vendor
-public/images
-public/temp
-public/uploads
-public/favicon.ico
-
-# Environment variables
-.env
+public/images/*
+public/temp/*
+public/uploads/*
