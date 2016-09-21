@@ -61,10 +61,14 @@ exports.editUser = function (req, res) {
         nickname: req.body.nickname,
         thumbnail: req.body.thumbnail,
     }).then(user => {
-        res.json(user);
+        res.json({
+            msg: '保存成功'
+        });
     }, err => {
         res.status(400);
-        res.json(err);
+        res.json({
+            msg: err
+        });
     });
 };
 
